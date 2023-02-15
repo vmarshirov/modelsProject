@@ -2,29 +2,22 @@
 
 {% block title %}title_index{% endblock %}
 
-{% block nav_second %}
-<ul class="nav">
-    <li class="nav-item"><a class="nav-link" href="{% url 'main:index' %}">main:index</a></li>
-    <li class="nav-item"><a class="nav-link" href="{% url 'main:list_main' %}">main:list_main</a></li>
-</ul>
-{% endblock %}
-
 
 {% block content %}
-<h5>contant_main_list_main</h5>
-
-<br>list_main<br>
-<br>{{list_main}}
-{% for i in list_main %}
-{{ i }}
-{% endfor %}
-
-<br>
-<br>dict_main<br>
-{{ dict_main}}
-<br>{{ dict_main.x }}
-<br>{{ dict_main.y }}
-{% for key, value in dict_main.items  %}
-<br>{{ key }} - {{value}}
-{% endfor %}
+    <h5>contant_main_list_dict</h5>
+    <p>list_main
+        <br>{{ list_main }}
+        <br>{{ list_main.2}}
+        {% for value in list_main %}
+            <br>{{ value }}
+        {% endfor %}
+    </p>
+    <p>dict_main
+        <br>{{ dict_main }}
+        <br>{{ dict_main.x }}
+        <br>{{ dict_main.y }}
+        {% for key, value in dict_main.items %}
+            <br>{{ key }}: {{ value }}
+        {% endfor %}
+    </p>
 {% endblock %}
