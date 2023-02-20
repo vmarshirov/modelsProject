@@ -1,12 +1,20 @@
 from django.db import models
 
 # Create your models here.
+c_choices = (
+    (0, "ноль"),
+    (10, "десять"),
+    (15, "пятьнадцать"),
+    (20, "двадцать"),
+)
 class Abc(models.Model):
-
     task = models.CharField(default="Равна ли С сумме A и B ?", max_length=256,verbose_name="Формулировка задачи")
     a = models.IntegerField(default=0, verbose_name="Значение А")
     b = models.IntegerField(default=0, verbose_name="Значение B")
-    c = models.IntegerField(default=0, verbose_name="Значение С")
+    c = models.IntegerField(choices=c_choices,default=0, verbose_name="Значение С")
+
+    def __str__(self):
+        return self.task
 
 
 
